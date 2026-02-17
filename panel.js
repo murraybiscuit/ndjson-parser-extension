@@ -856,18 +856,33 @@ document.querySelectorAll('.tab').forEach(tab => {
 // Filter input with auto-detect regex
 filterInput.addEventListener('input', (e) => {
   state.filter.text = e.target.value;
-  renderRequestList();
+  
+  const filteredRequests = state.requests.filter(req => matchesFilter(req.fullUrl));
   
   // If current selection is filtered out, clear it
   const selectedRequest = state.requests.find(req => req.id === state.selectedRequestId);
   if (selectedRequest && !matchesFilter(selectedRequest.fullUrl)) {
     state.selectedRequestId = null;
     state.selectedRequestData = null;
-    payloadPanel.innerHTML = '';
+    const resultsContainer = document.getElementById('payload-results');
+    if (resultsContainer) resultsContainer.innerHTML = '';
     headersPanel.innerHTML = '';
     tabs.style.display = 'none';
     emptyState.style.display = 'flex';
   }
+  
+  // If filter cleared or changed and we have results, auto-select first
+  if (filteredRequests.length > 0 && !state.selectedRequestId) {
+    const firstRequest = filteredRequests[0];
+    state.selectedRequestId = firstRequest.id;
+    state.selectedRequestData = firstRequest.fullRequestData;
+    tabs.style.display = 'flex';
+    emptyState.style.display = 'none';
+    renderPayloads(firstRequest.parsed);
+    renderHeaders(firstRequest.fullRequestData);
+  }
+  
+  renderRequestList();
 });
 
 // Handle search input clear button (native x button)
@@ -875,6 +890,16 @@ filterInput.addEventListener('search', () => {
   // Triggered when native clear button is clicked
   if (filterInput.value === '') {
     state.filter.text = '';
+    
+    // Auto-select first request when clearing filter
+    if (state.requests.length > 0) {
+      const firstRequest = state.requests[0];
+      state.selectedRequestId = firstRequest.id;
+      state.selectedRequestData = firstRequest.fullRequestData;
+      renderPayloads(firstRequest.parsed);
+      renderHeaders(firstRequest.fullRequestData);
+    }
+    
     renderRequestList();
   }
 });
