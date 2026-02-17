@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "NDJSON Payload Parser",
   "version": "1.0.0",
-  "description": "Parse NDJSON network payloads in DevTools with interactive JSON trees, search, and filtering",
+  "description": "Parse NDJSON network payloads in DevTools with interactive JSON trees, search, and filtering.",
   "permissions": [
     "webRequest",
     "clipboardWrite"
