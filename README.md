@@ -2,7 +2,7 @@
 
 A Chrome/Edge DevTools extension that automatically detects and parses NDJSON (Newline-Delimited JSON) payloads from network request bodies, displaying them as interactive, searchable JSON trees with a clean Material Design interface.
 
-![Chrome Web Store](https://img.shields.io/chrome-web-store/v/YOUR_EXTENSION_ID)
+![Chrome Web Store](https://img.shields.io/chrome-web-store/v/akmeaeppehffmdcdgcpdjndjclkhagni)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
 ## Overview
