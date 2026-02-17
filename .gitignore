@@ -1,0 +1,25 @@
+# Development files
+*.py
+*.pyc
+__pycache__/
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.log
+
+# Distribution
+*.zip
+dist/
+
+# Node (if you add build tools later)
+node_modules/
+package-lock.json
+yarn.lock
