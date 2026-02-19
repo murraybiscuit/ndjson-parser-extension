@@ -15,8 +15,9 @@ Thumbs.db
 *.tmp
 *.log
 
-# Distribution
+# Distribution (built on-demand)
 *.zip
+*.crx
 dist/
 
 # Node (if you add build tools later)

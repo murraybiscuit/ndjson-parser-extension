@@ -1,0 +1,35 @@
+name: Build Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Get version from tag
+      id: version
+      run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+      
+    - name: Create ZIP
+      run: |
+        cd extension
+        zip -r ../ndjson-parser-v${{ steps.version.outputs.VERSION }}.zip . -x "*.DS_Store" -x "__MACOSX/*"
+        cd ..
+      
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: ndjson-parser-v${{ steps.version.outputs.VERSION }}.zip
+        body: |
+          Release v${{ steps.version.outputs.VERSION }}
+          
+          Download the ZIP file and upload to Chrome Web Store.
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
