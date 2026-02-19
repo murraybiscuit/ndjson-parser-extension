@@ -2,7 +2,7 @@
 
 A Chrome/Edge DevTools extension that automatically detects and parses NDJSON (Newline-Delimited JSON) payloads from network request bodies, displaying them as interactive, searchable JSON trees with a clean Material Design interface.
 
-![Chrome Web Store](https://img.shields.io/chrome-web-store/v/akmeaeppehffmdcdgcpdjndjclkhagni)
+![Chrome Web Store](https://img.shields.io/chrome-web-store/v/YOUR_EXTENSION_ID)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
 ## Overview
@@ -100,6 +100,8 @@ The extension identifies NDJSON payloads by:
 ### Permissions
 - `clipboardWrite` - Copy JSON to clipboard
 - `host_permissions: <all_urls>` - Access network traffic across all domains
+
+**Note:** Network request monitoring uses the Chrome DevTools API (`devtools_page`), which doesn't require additional permissions.
 
 ## Privacy
 
