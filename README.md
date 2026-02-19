@@ -98,7 +98,6 @@ The extension identifies NDJSON payloads by:
 - Clipboard API with fallback support
 
 ### Permissions
-- `webRequest` - Monitor network requests
 - `clipboardWrite` - Copy JSON to clipboard
 - `host_permissions: <all_urls>` - Access network traffic across all domains
 
