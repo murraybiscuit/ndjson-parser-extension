@@ -1,10 +1,9 @@
 {
   "manifest_version": 3,
   "name": "NDJSON Payload Parser",
-  "version": "1.0.0",
-  "description": "DevTools extension to parse NDJSON network payloads. Requires access to all sites for network monitoring (like Chrome Network tab).",
+  "version": "1.0.1",
+  "description": "Parse NDJSON network payloads in DevTools with interactive JSON trees, search, and filtering",
   "permissions": [
-    "webRequest",
     "clipboardWrite"
   ],
   "host_permissions": [
